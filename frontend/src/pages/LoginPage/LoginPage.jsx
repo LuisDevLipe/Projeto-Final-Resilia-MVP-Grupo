@@ -12,7 +12,7 @@ import  Button  from "react-bootstrap/Button";
 import Input from 'react-bootstrap/InputGroup';
 
 const LoginPage = () => {
-  const {authenticated,user,login,loginError} = useContext(AuthContext)
+  const {login,loginError} = useContext(AuthContext)
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("")
 

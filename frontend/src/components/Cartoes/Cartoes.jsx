@@ -2,14 +2,10 @@ import React, { useState } from "react";
 import "./Cartoes.css";
 import { Form } from "react-bootstrap";
 
-const Cartoes = ({
-  cartoes,
-  onDeleteCartao,
-  onNewCartao
-}) => {
+const Cartoes = ({ cardError,cartoes, onDeleteCartao, onNewCartao }) => {
   const [cartaoNumero, setCartaoNumero] = useState("");
   const [cartaoTipo, setCartaoTipo] = useState("");
-  const expressCard = { nome: "express", src: "/assets/cartoes2.png" };
+  const expressCard = { nome: "Express", src: "/assets/cartoes2.png" };
   const valeCard = { nome: "Vale-Transporte", src: "/assets/cartoes.png" };
   const empresarialCard = { nome: "Empresarial", src: "/assets/cartoes3.png" };
   return (
@@ -28,21 +24,15 @@ const Cartoes = ({
                   <div className="owner">{cartao.numero}</div>
                   <div className="name">{cartao.tipo}</div>
                   <div className="img">
-                    {cartao.tipo === "Express" ? (
-                      <img src={expressCard.src} />
-                    ) : (
-                      console.log("haha")
-                    )}
-                    {cartao.tipo === "Vale-Transporte" ? (
-                      <img src={valeCard.src} />
-                    ) : (
-                      console.log("haha")
-                    )}
-                    {cartao.tipo === "Empresarial" ? (
-                      <img src={empresarialCard.src} />
-                    ) : (
-                      console.log("haha")
-                    )}
+                    {cartao.tipo === expressCard.nome ? (
+                      <img src={expressCard.src} alt="" />
+                    ) : null}
+                    {cartao.tipo === valeCard.nome ? (
+                      <img src={valeCard.src} alt="" />
+                    ) : null}
+                    {cartao.tipo === empresarialCard.nome ? (
+                      <img src={empresarialCard.src} alt="" />
+                    ) : null}
                   </div>
                 </div>
                 <button
@@ -59,13 +49,15 @@ const Cartoes = ({
       <div className="new">
         <div className="field">
           <label htmlFor="numero">Insira um novo número de cartão </label>
+          <small className="d-block text-danger">{cardError.message}</small>
           <input
+            maxLength={5}
             type="number"
             name="numero"
             className="new-cartao"
             placeholder="Número disponível no verso do Cartão"
             value={cartaoNumero}
-            onChange={(e) => setCartaoNumero(e.target.value)}
+            onChange={(e) => setCartaoNumero(e.target.value.slice(0, 13))}
           />
         </div>
         <Form>
@@ -97,7 +89,6 @@ const Cartoes = ({
             />
           </div>
         </Form>
-        {console.log(cartaoTipo)}
         <button onClick={() => onNewCartao(cartaoNumero, cartaoTipo)}>
           Adcionar Cartão
         </button>

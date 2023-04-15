@@ -26,7 +26,6 @@ const MinhaConta = () => {
       }else if (password.length <4)
       setSenhaError("Senha precisa ter no mínimo 4 caracteres");
     };
-
     const style = {
         flex:{
             display:"flex",

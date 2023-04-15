@@ -14,6 +14,8 @@ import MeusCartoes from "../pages/MeusCartoes/MeusCartoes";
 import { AuthContext, AuthProvider } from "../contexts/auth";
 import FaleConosco from "../pages/FaleConosco/FaleConosco";
 import MinhaConta from "../pages/MinhaConta/MinhaConta";
+import Sobre from "../pages/Sobre/Sobre";
+import AdminSobre from "../pages/Admin/Sobre/AdminSobre";
 
 const AppRoutes = () => {
   const Private = ({ children }) => {
@@ -34,8 +36,9 @@ const AppRoutes = () => {
           <Route exact path="/cadastro" element={<SignUpPage />} />
           <Route exact path="/login" element={<LoginPage />} />
           <Route exact path="/faleconosco" element={<FaleConosco />} />
-          <Route exact path="/" element={<MainPage />}
-          />
+          <Route exact path="/" element={<MainPage />}/>
+          <Route exact path="/sobre" element={<Sobre />}/>
+          <Route exact path="/admin/sobre" element={<AdminSobre />}/>
           <Route
             exact
             path="/cartoes"

@@ -3,15 +3,19 @@ import CartoesController,{createTableCartoes} from "./controllers/CartoesControl
 import UsersController,{createTablePessoas} from "./controllers/UsersController"
 import SessionsController from "./controllers/SessionsController"
 import MensagensController,{createTableMensagens} from "./controllers/MensagensController"
+import SobreController,{createTableSobre} from "./controllers/SobreController"
 import auth from './middlewares/auth'
 const routes = new Router()
 // createTablePessoas()
 // createTableCartoes()
 // createTableMensagens()
+// createTableSobre()
 //controllers publicos
 routes.post('/sessions'     ,SessionsController.create)
 routes.post('/users'        ,UsersController.create)
 routes.post('/users/:user_id/mensagens',MensagensController.create)
+routes.get('/sobre',SobreController.index)
+
 
 // //middleware
 routes.use(auth)
@@ -29,5 +33,9 @@ routes.delete('/users/:user_id/Cartoes/:id',CartoesController.destroy)
 
 routes.get('/mensagens'          ,MensagensController.index)
 routes.get('/mensagens/:user_id' ,MensagensController.show)
+
+routes.post('/admin/sobre',SobreController.create)
+routes.delete('/admin/sobre/:id',SobreController.destroy)
+routes.put("/admin/sobre/:id",SobreController.update)
 
 export default routes

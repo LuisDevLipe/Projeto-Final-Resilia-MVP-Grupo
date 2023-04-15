@@ -19,10 +19,6 @@ class SessionsController {
         .then((response) => {
           userPasswordDB = response.password;
           user = response;
-          // console.log(response)
-          // return res.status(200).json({
-          //   message:"sessão pronta para ser criada"
-          // })
         });
 
       const checkPassword = bcrypt.compare(
@@ -48,6 +44,7 @@ class SessionsController {
             });
           } else {
             console.log({ msg: "Invalid Credential" });
+            res.status(401).json({message:"Usuário ou senha incorretos"})
           }
           return true;
         }

@@ -100,7 +100,7 @@ const SignUpPage = () => {
             />
           </div>
 
-          <p className="signUpError">{signUpError}</p>
+          <small className="signUpError d-block text-danger mb-2">{signUpError}</small>
           <div className=" text-center">
             <Button type="submit" className="btn btn-lg btn-primary ">
               Sign up

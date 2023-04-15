@@ -12,7 +12,7 @@ const MainPage = () => {
 
   return (
     <>
-      <Carousel variant='dark' activeIndex={index} onSelect={handleSelect} style={{height:"460px"}}>
+      {/* <Carousel variant='dark' activeIndex={index} onSelect={handleSelect} style={{height:"460px"}}>
         <Carousel.Item style={{height:"460px"}}>
           <img
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
@@ -67,7 +67,7 @@ const MainPage = () => {
             </p>
           </Carousel.Caption>
         </Carousel.Item>
-      </Carousel>
+      </Carousel> */}
       <div className="sectionA">
         <div className="carrosel">
           <div className="bg bg1">

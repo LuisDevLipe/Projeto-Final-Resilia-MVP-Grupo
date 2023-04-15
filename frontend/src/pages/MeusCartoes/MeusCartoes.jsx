@@ -7,10 +7,11 @@ import { AuthContext } from "../../contexts/auth"
 
 const MeusCartoes = () => {
   
-    const {user,logout,deleteAcc} = useContext(AuthContext)
+  const {user} = useContext(AuthContext)
   const [cartoes,setCartoes] = useState([])
   const [loading,setLoading] = useState(false)
   const [loadingError,setLoadingError] =  useState(false)
+  const [cardError,setCardError] = useState({})
 
   const loadData = async (query = '') => {
     try {
@@ -27,17 +28,20 @@ const MeusCartoes = () => {
   },[])
 
   const handleNewCartao = async (cartaoNumero,cartaoTipo)=>{
-    console.log('new card Created')
     try {
+      if(!cartaoTipo) return setCardError({message:"Selecione o tipo do cartão"})
+      if(cartaoNumero.length < 13) return setCardError({message:"Parece que você esqueceu alguns dígitos... :) Um cartão válido possui 13 dígitos"})
       await CreateCartao(user?.id,cartaoNumero,cartaoTipo)
       await loadData()
+      setCardError({})
     } catch (err) {
       console.error(err)
       setLoadingError(true)
+      setCardError(err.response.data)
+      console.log(cardError)
     }
   }
   const handleDeleteCartao = async(id)=> {
-    console.log('deleteRepo')
     await destroyCartao( user?.id,id)
     await loadData()
   }
@@ -57,6 +61,7 @@ const MeusCartoes = () => {
   return (
     <div className="main">
       <Cartoes 
+      cardError={cardError}
       cartoes={cartoes}
       onDeleteCartao={handleDeleteCartao}  
       onNewCartao={handleNewCartao}

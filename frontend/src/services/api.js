@@ -3,7 +3,7 @@ export const API = axios.create({
     baseURL:"http://localhost:5001",
     
 })
-API.defaults.timeout = 2000
+API.defaults.timeout = 3000
 export const createUser = async (nome,cpf,email,password)=> {
     return API.post('/users',{nome,cpf,email,password})
 }
@@ -11,7 +11,6 @@ export const deleteUser = async (userId) => {
     return API.delete(`/users/${userId}`)
 }
 export const updateUser = async (userId,nome,email,idade,cpf,password) => {
-    console.log('axios chamou')
     return API.put(`/users/${userId}`,{nome,email,idade,cpf,password})
 }
 export const createSession = async(email,password)=> {
@@ -26,23 +25,12 @@ export const getCartoes = async(userId,query) => {
     return API.get(url)
 }
 export const CreateCartao= async (userId,cartaoNumero,cartaoTipo)=> {
-    console.log(userId,cartaoNumero,cartaoTipo)
-    // const cartaoName = getRepositoryName(repositoryUrl)
     const url = `/users/${userId}/Cartoes`
     return API.post(url,{numero:cartaoNumero,tipo:cartaoTipo,userId})
 }
 export const destroyCartao = async (userId,id)=> {
     const url = `/users/${userId}/Cartoes/${id}`
     return API.delete(url)
-}
-const getRepositoryName = (url)=> {
-    // https://ihateregex.io/expr/url/
-    const REGEX = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*)/
-    const match = url.match(REGEX)
-    if(match[2]) {
-        const values = match[2].split('/')
-        return `${values[1]}/${values[2]}`
-    }
 }
 
 export const createMensagem = (userId,mensagemSend) => {
@@ -53,4 +41,17 @@ export const createMensagem = (userId,mensagemSend) => {
         return API.post(`/users/${defaultUser}/mensagens`,mensagemSend)
     }
 }
-
+export const postarSobre = (titulo,texto)=> {
+    return API.post(`/admin/sobre`,{titulo,texto},(res)=>{
+        console.log(res)
+    })
+}
+export const getSobre = ()=>{
+    return API.get("/sobre")
+}
+export const deleteSobre = (id)=>{
+    return API.delete(`/admin/sobre/${id}`)
+}
+export const updateSobre = (id,titulo,texto)=>{
+    return API.put(`/admin/sobre/${id}`,{titulo,texto})
+}

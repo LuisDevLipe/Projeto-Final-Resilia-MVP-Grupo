@@ -16,7 +16,6 @@ class CartoesController {
             const { user_id } = req.params
             const { q } = req.query
             if(!q){
-                console.log('block sem query')
                 await Database().then((db)=>{
                    return db.all("SELECT * FROM Cartoes WHERE userId=?",[user_id])
                     .then((cartao)=>{
@@ -28,11 +27,9 @@ class CartoesController {
             }
             let query = q
             if(q){
-                console.log('bloco da query')
                 await Database().then((db)=>{
                     return db.all(`SELECT * FROM Cartoes WHERE userId=? AND numero LIKE("%${query}%") `,[user_id])
                     .then((cartaoQ)=>{
-                        console.log(cartaoQ)
                         return cartaoQ? res.status(200).json(cartaoQ) : res.status(404).json({
                             error:"Houve algo de errado com a busca"
                         })
@@ -73,7 +70,6 @@ class CartoesController {
                     Database().then((db)=>{
                         db.run("INSERT INTO Cartoes(numero,tipo,userId) VALUES (?,?,?)",[numero,tipo,user_id])
                         .then((cartaoRes)=>{
-                            console.log(!!cartaoRes.changes)
                             !!cartaoRes.changes? res.status(201).json(cartaoRes) : res.status(500).json({
                                 error:"Erro ao adcionar cartão"
                             })

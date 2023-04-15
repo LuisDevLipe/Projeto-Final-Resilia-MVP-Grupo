@@ -97,7 +97,8 @@ function FaleConosco() {
             style={style.image}
             src="/assets/25929.jpg"
             className="rounded"
-          ></Image> */}
+          ></Image> */
+          }
         </Container>
       </>
     );
