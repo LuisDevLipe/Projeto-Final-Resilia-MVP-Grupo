@@ -22,5 +22,6 @@
   "devDependencies": {
     "nodemon": "^2.0.21",
     "sucrase": "^3.29.0"
-  }
+  },
+  "type":"module"
 }
