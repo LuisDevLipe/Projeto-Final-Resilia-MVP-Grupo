@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import Cards from "../../components/Cards/Cards";
 import "./MainPageStyle.css";
+import WebpWFallback from "../../components/WebpImageWithFallback"
 
 const MainPage = () => {
   const [index, setIndex] = useState(0);
@@ -71,37 +72,49 @@ const MainPage = () => {
       <div className="sectionA">
         <div className="carrosel">
           <div className="bg bg1">
+            {/* <picture>
+              <source srcSet="/assets/bg2/webp/dando-mole-na-rua.webp" type='image/webp'/>
             <img
               className="img"
               src="/assets/bg2/dando-mole-na-rua.jpg"
               alt="Homem dando mole na rua pra perder o celular no centro da cidade"
             />
+            </picture> */}
+            <WebpWFallback 
+            className="img" 
+            src="/assets/bg2/webp/dando-mole-na-rua.webp" 
+            fallback="/assets/bg2/dando-mole-na-rua.jpg" 
+            alt="Homem dando mole na rua pra perder o celular no centro da cidade"/>
           </div>
           <div className="bg bg2">
-            <img
+            <WebpWFallback
               className="img"
-              src="/assets/bg2/homem-na-cidade-tentando-parar-de-taxi.jpg"
+              src="/assets/bg2/webp/homem-na-cidade-tentando-parar-de-taxi.webp"
+              fallback="/assets/bg2/homem-na-cidade-tentando-parar-de-taxi.jpg"
               alt="Homem acenando para chamar o transporte"
             />
           </div>
           <div className="bg bg3">
-            <img
+            <WebpWFallback
               className="img"
-              src="/assets/bg2/pessoas-na-estacao.jpg"
+              src="/assets/bg2/webp/pessoas-na-estacao.webp"
+              fallback="/assets/bg2/pessoas-na-estacao.jpg"
               alt="Pessoas se movimentando em uma estação de trem"
             />
           </div>
           <div className="bg bg4">
-            <img
+            <WebpWFallback
               className="img"
-              src="/assets/bg2/pessoas.jpg"
+              src="/assets/bg2/webp/pessoas.webp"
+              fallback="/assets/bg2/pessoas.jpg"
               alt="Pessoas esperando em um ponto de ônibus"
             />
           </div>
           <div className="bg bg5">
-            <img
+            <WebpWFallback
               className="img"
-              src="/assets/bg2/trem-vindo.jpg"
+              src="/assets/bg2/webp/trem-vindo.webp"
+              fallback="/assets/bg2/trem-vindo.jpg"
               alt="Imagem de um trem se aproximando da estação"
             />
           </div>

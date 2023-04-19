@@ -29,7 +29,7 @@ class SessionsController {
           if (data) {
             console.log({ msg: "Login Sucess" });
             const { id, nome, cpf, idade } = user;
-            console.log(user);
+            // console.log(user);
             return res.json({
               user: {
                 id,

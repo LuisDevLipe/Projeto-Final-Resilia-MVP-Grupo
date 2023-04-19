@@ -9,3 +9,15 @@
   outline:none;
   border:none;
 }
+.genericError {
+  font-size: 0.75rem;
+  color: #ff0000;
+  display: inline;
+  margin:0.5rem;
+}
+.genericSuccess {
+  font-size: 0.75rem;
+  color: #008000;
+  display: inline;
+  margin:0.5rem;
+}

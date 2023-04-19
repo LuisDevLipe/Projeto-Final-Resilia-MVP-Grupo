@@ -1,9 +1,11 @@
 import axios from 'axios'
+const local = "http://localhost:5001"
+const render = "https://api-mvp-resilia.onrender.com"
 export const API = axios.create({
-    baseURL:"https://api-mvp-resilia.onrender.com",
+    baseURL:render,
     
 })
-API.defaults.timeout = 3000
+API.defaults.timeout = 10000
 export const createUser = async (nome,cpf,email,password)=> {
     return API.post('/users',{nome,cpf,email,password})
 }
@@ -46,7 +48,7 @@ export const postarSobre = (titulo,texto)=> {
         console.log(res)
     })
 }
-export const getSobre = ()=>{
+export const getSobre = async ()=>{
     return API.get("/sobre")
 }
 export const deleteSobre = (id)=>{

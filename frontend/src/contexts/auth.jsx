@@ -100,8 +100,9 @@ export const AuthProvider = ({ children }) => {
   };
   const AdminSobrePost = async (titulo, texto) => {
     try {
-      await postarSobre(titulo, texto);
+      const response = await postarSobre(titulo, texto);
       bugfix();
+      return response
     } catch (e) {
       console.log(e);
     }
@@ -116,8 +117,9 @@ export const AuthProvider = ({ children }) => {
   };
   const AdminSobreUpdate = async (a, b, c) => {
     try {
-      await updateSobre(a, b, c);
+      const response = await updateSobre(a, b, c);
       bugfix();
+      return response
     } catch (e) {
       console.log(e);
     }
