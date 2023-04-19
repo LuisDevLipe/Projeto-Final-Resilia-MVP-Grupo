@@ -1,7 +1,6 @@
 import { Container, Form, Button, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import React, { useState,useContext } from "react";
-import Carousel from "react-bootstrap/Carousel";
 import { AuthContext } from "../../contexts/auth";
 
 function FaleConosco() {
