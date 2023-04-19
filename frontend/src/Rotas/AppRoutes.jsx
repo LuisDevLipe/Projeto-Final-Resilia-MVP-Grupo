@@ -36,6 +36,7 @@ const AppRoutes = () => {
           <Route exact path="/cadastro" element={<SignUpPage />} />
           <Route exact path="/login" element={<LoginPage />} />
           <Route exact path="/faleconosco" element={<FaleConosco />} />
+          <Route exact path="/index.html" element={<MainPage />}/>
           <Route exact path="/" element={<MainPage />}/>
           <Route exact path="/sobre" element={<Sobre />}/>
           <Route exact path="/admin/sobre" element={<AdminSobre />}/>
