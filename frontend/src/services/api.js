@@ -1,6 +1,6 @@
 import axios from 'axios'
 export const API = axios.create({
-    baseURL:"http://localhost:5001",
+    baseURL:"https://api-mvp-resilia.onrender.com",
     
 })
 API.defaults.timeout = 3000
