@@ -1,10 +1,10 @@
 import { Router } from "express"
-import CartoesController,{createTableCartoes} from "./controllers/CartoesController"
-import UsersController,{createTablePessoas} from "./controllers/UsersController"
-import SessionsController from "./controllers/SessionsController"
-import MensagensController,{createTableMensagens} from "./controllers/MensagensController"
-import SobreController,{createTableSobre} from "./controllers/SobreController"
-import auth from './middlewares/auth'
+import CartoesController,{createTableCartoes} from "./controllers/CartoesController.js"
+import UsersController,{createTablePessoas} from "./controllers/UsersController.js"
+import SessionsController from "./controllers/SessionsController.js"
+import MensagensController,{createTableMensagens} from "./controllers/MensagensController.js"
+import SobreController,{createTableSobre} from "./controllers/SobreController.js"
+import auth from './middlewares/auth.js'
 const routes = new Router()
 // createTablePessoas()
 // createTableCartoes()

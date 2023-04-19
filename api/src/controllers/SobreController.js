@@ -1,4 +1,4 @@
-import { Database } from "../database/index"
+import { Database } from "../database/index.js"
 
 export async function createTableSobre(){
     try {

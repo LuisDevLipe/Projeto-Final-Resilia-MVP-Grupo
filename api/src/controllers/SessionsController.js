@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
-import authConfig from "../config/auth";
-import { Database } from "../database/index";
+import authConfig from "../config/auth.js";
+import { Database } from "../database/index.js";
 
 class SessionsController {
   async create(req, res) {

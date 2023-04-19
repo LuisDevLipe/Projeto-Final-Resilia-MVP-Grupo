@@ -1,11 +1,7 @@
-<<<<<<< Updated upstream
-import app from './app'
-=======
-import App from './app.js'
->>>>>>> Stashed changes
+import app from './app.js'
 const PORT = 5001
 
-App.listen(PORT,
+app.listen(PORT,
     ()=>{
         console.log(
             `http://localhost:${PORT}`

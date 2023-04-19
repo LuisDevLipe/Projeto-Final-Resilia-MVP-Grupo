@@ -1,9 +1,9 @@
 import express,{Router} from 'express'
 import cors from 'cors'
-import routes from './routes'
+import routes from './routes.js'
 // import './database'
 
-class App {
+class app {
     constructor(){
         this.server = express()
         this.middlewares()
@@ -17,4 +17,4 @@ class App {
         this.server.use(routes)
     }
 }
-export default new App().server
+export default new app().server
