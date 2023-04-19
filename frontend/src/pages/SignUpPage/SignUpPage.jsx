@@ -3,7 +3,7 @@ import { AuthContext } from "../../contexts/auth";
 import { Link } from "react-router-dom";
 
 //Import SVG
-import Cadastro from "../../../public/assets/undraw_security.svg";
+// import Cadastro from "../../../public/assets/undraw_security.svg";
 
 //Imports Bootstrap
 import Container from "react-bootstrap/Container";
@@ -26,7 +26,7 @@ const SignUpPage = () => {
     <Container className="d-grid h-100 mb-4">
       <div className="d-flex  flex-column  align-items-center mt-5 ">
         <img
-          src={Cadastro}
+        // 
           alt="Imagem perfil"
           className="d-flex align-items-center h-25 w-25"
         />

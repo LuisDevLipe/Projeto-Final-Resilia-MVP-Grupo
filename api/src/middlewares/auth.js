@@ -1,6 +1,6 @@
 // Cliente <--> Node.js -> Express -> Middlewares -> controller
 import jwt from 'jsonwebtoken'
-import authConfig from '../config/auth'
+import authConfig from '../config/auth.js'
 import { promisify }  from 'util'
 
 export default async (req,res,next) => {

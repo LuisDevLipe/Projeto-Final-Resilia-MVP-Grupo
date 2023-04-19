@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import "./LoginPageStyle.css"
 
 // Import SVG
-import Profile from '../../../public/assets/undraw_profile.svg'
+// import Profile from '../../../public/assets/undraw_profile.svg'
 
 //Imports Bootstrap
 import Container from 'react-bootstrap/Container';
@@ -26,7 +26,7 @@ const LoginPage = () => {
     <Container className="d-grid h-100 mb-4">
     <div className="d-flex  flex-column  align-items-center mt-5 ">
         
-        <img src={Profile} alt="Imagem perfil"  className="d-flex align-items-center h-25 w-25"/>
+        <img alt="Imagem perfil"  className="d-flex align-items-center h-25 w-25"/>
         <h1>Login</h1>
       <form className=" border border-primary rounded text-center p-3 w-90 col-md-4 col-sm-8" onSubmit={handleLogin}>
               <div className="mt-3 mb-3">

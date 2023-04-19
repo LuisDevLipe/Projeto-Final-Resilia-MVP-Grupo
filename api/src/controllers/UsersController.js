@@ -1,6 +1,5 @@
-// import User from '../models/User'
-import {createPasswordHash}   from '../services/auth'
-import { Database } from "../database/index";
+import {createPasswordHash}   from '../services/auth.js'
+import { Database } from "../database/index.js";
 
 export async function createTablePessoas(){
     Database().then(db=>{
